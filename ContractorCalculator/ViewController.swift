@@ -20,9 +20,16 @@ class ViewController: UIViewController {
         let laborText = labor.text
         let materialsText = materials.text
         
-        guard let laborCost = Double(laborText!) else { return subtotal.text = "Error: labor must be a number" }
-        guard let masterialsCost = Double(materialsText!) else { return subtotal.text = "Error: materials must be a number" }
-        
+        guard let laborCost = Double(laborText!) else{
+            subtotal.text = "Error: labor must be a number"
+            tax.text = ""
+            return total.text = ""
+        }
+        guard let masterialsCost = Double(materialsText!) else{
+            subtotal.text = "Error: materials must be a number"
+            tax.text = ""
+            return total.text = ""
+        }
         let subtotalAmount = laborCost + masterialsCost
         let subtotalString = String(subtotalAmount)
         
